@@ -22,9 +22,8 @@ function Tweet({ tweet }: Props) {
   const [input, setInput] = useState<string>('');
 
   const refreshComments = async () => {
-    console.log(tweet);
-    // const comments: Comment[] = await fetchComments(tweet._id);
-    // setComments(comments);
+    const comments: Comment[] = await fetchComments(tweet._id);
+    setComments(comments);
   };
   useEffect(() => {
     refreshComments();
@@ -130,7 +129,7 @@ function Tweet({ tweet }: Props) {
             <div key={comment._id} className="relative flex space-x-2 ">
               <hr className="absolute left-5 top-10 h-7 border-x border-twitter/30" />
               <img
-                src={comment.profileImage}
+                src={comment.profileImg}
                 className="mt-2 h-7 w-7 object-cover rounded-full"
                 alt=""
               />
