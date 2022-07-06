@@ -37,7 +37,7 @@ function Tweet({ tweet }: Props) {
       comment: input,
       tweetId: tweet._id,
       username: session?.user?.name || 'Unknown User',
-      profileImg: session?.user?.image || 'https://links.papareact.com/gll',
+      profileImage: session?.user?.image || 'https://links.papareact.com/gll',
     };
 
     const result = await fetch(`/api/addComment`, {
@@ -129,7 +129,7 @@ function Tweet({ tweet }: Props) {
             <div key={comment._id} className="relative flex space-x-2 ">
               <hr className="absolute left-5 top-10 h-7 border-x border-twitter/30" />
               <img
-                src={comment.profileImg}
+                src={comment.profileImage}
                 className="mt-2 h-7 w-7 object-cover rounded-full"
                 alt=""
               />
