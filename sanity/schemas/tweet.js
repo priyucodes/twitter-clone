@@ -19,6 +19,7 @@ export default {
       title: 'Username',
       type: 'string',
     },
+
     {
       name: 'profileImage',
       title: 'Profile Image',

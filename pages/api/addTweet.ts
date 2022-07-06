@@ -20,6 +20,7 @@ export default async function handler(
           text: data.text,
           username: data.username,
           blockTweet: false,
+
           profileImage: data.profileImage,
           image: data.image,
         },

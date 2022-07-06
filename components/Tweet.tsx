@@ -1,4 +1,4 @@
-import { Comment, Tweet } from '../typings';
+import { Comment, CommentBody, Tweet } from '../typings';
 import TimeAgo from 'react-timeago';
 import {
   ChatAlt2Icon,
@@ -20,6 +20,7 @@ function Tweet({ tweet }: Props) {
   const [comments, setComments] = useState<Comment[]>([]);
   const [commentBoxVisible, setCommentBoxVisible] = useState<boolean>(false);
   const [input, setInput] = useState<string>('');
+
   const refreshComments = async () => {
     const comments: Comment[] = await fetchComments(tweet._id);
     setComments(comments);
@@ -52,6 +53,7 @@ function Tweet({ tweet }: Props) {
     setCommentBoxVisible(false);
     refreshComments();
   };
+
   return (
     <div className="flex flex-col space-x-3 border-y p-5 border-gray-100">
       <div className="flex space-x-3">
@@ -122,7 +124,7 @@ function Tweet({ tweet }: Props) {
       )}
 
       {comments?.length > 0 && (
-        <div className="my-2 mt-5 max-h-44 space-y-5 overflow-y-scroll border-t border-gray-100 p-5">
+        <div className="my-2 mt-5 max-h-44 space-y-5 overflow-y-scroll border-t border-gray-100 p-5 scrollbar-hide">
           {comments.map(comment => (
             <div key={comment._id} className="relative flex space-x-2 ">
               <hr className="absolute left-5 top-10 h-7 border-x border-twitter/30" />
