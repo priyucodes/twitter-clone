@@ -23,8 +23,8 @@ function Tweet({ tweet }: Props) {
 
   const refreshComments = async () => {
     console.log(tweet);
-    const comments: Comment[] = await fetchComments(tweet._id);
-    setComments(comments);
+    // const comments: Comment[] = await fetchComments(tweet._id);
+    // setComments(comments);
   };
   useEffect(() => {
     refreshComments();
